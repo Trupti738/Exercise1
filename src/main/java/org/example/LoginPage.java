@@ -1,21 +1,18 @@
 package org.example;
 
 import org.openqa.selenium.By;
+public class LoginPage extends Utills{
 
-public class LoginPage extends Utils {
-    private By _acontainsclassiconlogin = By.xpath("//a[contains(@class,'ico-login')]");
-    private By _inputcontainclassemail = By.xpath( "//input[contains(@class,'email')]");
-    private By _inputcontainclasspassword = By.xpath("//input[contains(@class,'password')]");
-    private By _buttonstartswithclassbuttonloginbutton = By.xpath("//button[Start-with(@class,'button-1 login-button')]");
-    public void enterTheLoginDetails(){
-
-        clickOnElement(_acontainsclassiconlogin);
-
-        typeText((_inputcontainclassemail),"ram123@gmail.com");
-
-        typeText((_inputcontainclasspassword),"ram1234");
-
-        clickOnElement(_buttonstartswithclassbuttonloginbutton);
-
-    }
-}
+By _email = By.id("Email");
+        //Click on password button
+        By _password = By.id("Password");
+        //Click on login button
+        By _login = By.xpath("//button[contains(@class,\"button-1 login-button\")]");
+public void enterLoginAndPassword(){
+        // Enter your email address
+        typeText(_email, "manhararya25@gmail.com");
+        // Enter Password
+        typeText(_password, "1111aaaa");
+        // Click Log in button
+        clickOnElement(_login);
+        }}

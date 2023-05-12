@@ -1,97 +1,133 @@
 package org.example;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
+public class Test_Suit extends BaseTest {
+    // Create on connector
+    HomePage homePage = new HomePage();
+    RegisterPage registerPage = new RegisterPage();
+    RegisterResultPage registerResultPage = new RegisterResultPage();
+    LoginPage loginPage = new LoginPage();
+    VoteResult voteResult = new VoteResult();
+    AppleMacBookPro13Inch appleMacBookPro13Inch = new AppleMacBookPro13Inch();
 
+    EmailAFriendResult emailAFriendResultHTCOneM8AndroidL50Lollipop htcOneM8AndroidL50Lollipop = new HTCOneM8AndroidL50Lollipop();
+    $25VirtualGiftCard $25VirtualGiftCard = new $25VirtualGiftCard();
 
-    public class TestSuit1 extends BaseTest {
+    ProductComparison productComparison = new ProductComparison();
+    CompareClearListMessage compareClearListMessage = new CompareClearListMessage();
+    GiftCard giftCard = new GiftCard();
+    Electronics electronics = new Electronics();
+    CameraAndPhoto cameraAndPhoto = new CameraAndPhoto();
+    LeicaTMirrorlessDigitalCamera leicaTMirrorlessDigitalCamera = new LeicaTMirrorlessDigitalCamera();
+    ShoppingCart shoppingCart = new ShoppingCart();
+    NopCommerceNewRelease nopCommerceNewRelease = new NopCommerceNewRelease();
+    BuildYourOwnComputer buildYourOwnComputer = new BuildYourOwnComputer();
+    CheckOutPage checkoutPage = new CheckOutPage();
+    OrderConfirm orderConfirm = new OrderConfirm();
+    SocialMedia socialMedia = new SocialMedia();
 
-        HomePage homePage = new HomePage();
-        RegisterPage registerPage = new RegisterPage();
-        RegisterResultPage registerResultPage = new RegisterResultPage();
-        LoginPage loginPage = new LoginPage();
+    //Create all Test suit
+    @Test
+    public void verifyNonUserShouldNotBeAbleToVoteToCommunityPoll() {
+        homePage.doVote();
+        voteResult.nonUserGetVoteResult();
+    }
 
-        VotePage votePage = new VotePage();
-        VoteResultPage voteResultPage = new VoteResultPage();
+    @Test
+    public void verifyUserShouldBeAbleToVoteToCommunityPoll() {
+        //click on register button
+        homePage.clickOnRegisterButton();
+        //fill in registration details
+        registerPage.enterRegistrationDetails();
+        homePage.clickOnLoginButton();
+        loginPage.enterLoginAndPassword();
 
-        EmailPage emailPage = new EmailPage();
-
-        EmailResultPage emailPageResult = new EmailResultPage();
-
-        CompareProduct compareProduct = new CompareProduct();
-        CompareResultPage compareResultPage = new CompareResultPage();
-
-        ElectronicPage electronicPage = new ElectronicPage();
-
-        ElectronicResultPage electronicResultPage = new ElectronicResultPage();
-
-        ReferAfriend referAFriend = new ReferAfriend();
-        VoteNumberPage voteNumberPage = new VoteNumberPage();
-
-        VoteNumberResultPage voteNumberResult = new VoteNumberResultPage();
-
+        homePage.doVote();voteResult.userGetVoteResult();}
+    @Test
+    public void verifyNonUserShouldNotBeAbleToSendAEmailToFriend(){
+        homePage.clickOnAppleMacBookPro13InchName();
+        appleMacBookPro13Inch.emailAFriend();
+        emailAFriend.nonUserEnterEmailDetails();
+        emailAFriendResult.nonUserSendAEmailToFriendResult();
+    }
+    @Test
+    public void verifyUserShouldBeAbleToReferAProductToFriend(){
+        //click on register button
+        homePage.clickOnRegisterButton();
+        registerPage.enterRegistrationDetails();
+        homePage.clickOnLoginButton();
+        loginPage.enterLoginAndPassword();
+        homePage.clickOnAppleMacBookPro13InchName();
+        appleMacBookPro13Inch.emailAFriend();
+        emailAFriend.userEnterEmailDetails();
+        emailAFriendResult.userSendAEmailToFriendResult();
+    }
+    @Test
+    public void verifyUserShouldBeAbleToCompareProduct(){
+        homePage.clickOnHTCOneM8Android();
+        htcOneM8AndroidL50Lollipop.compareProduct();
+        htcOneM8AndroidL50Lollipop.giftCard();
+        giftCard.clickOn$25VirtualGiftCard();
+        $25VirtualGiftCard.compareProduct();
+        $25VirtualGiftCard.productComparison();
+        productComparison.compareProductBetween();
+        productComparison.clearList();
+        compareClearListMessage.getClearListMessage();
+    }
+    @Test
+    public void verifyUserShouldBeAbleToAddProductToShoppingCart(){
+        homePage.electronics();
+        electronics.CameraAndPhoto();
+        cameraAndPhoto.
+                cameraAndPhoto.leicaTMirrorlessDigitalCamera();
+        leicaTMirrorlessDigitalCamera.addToCartButton16();
+        leicaTMirrorlessDigitalCamera.shoppingCart();
+        shoppingCart.productInShoppingCart();
+    }
+    @Test
+    public void verifyPrintoutProductTitle(){
+        homePage.printoutProductTitle();
+    }
+    @Test
+    public void verifySearchAlertMessage(){
+        homePage.searchAlertMessage();
+    }
+    @Test
+    public void verifyVoteAlertMessage(){
+        homePage.voteAlertMessage();
         @Test
-        public void verifyUserShouldBeAbleToRegisterSuccessfully() {
-
-            //click on register button
-            homePage.clickOnRegisterButton();
-            //fill in registration details
-            registerPage.enterRegistrationDetails();
-            //verify user registered successfully
-            registerResultPage.verifyUserRegisterSuccessfully();
-
+        public void verifyProductPriceListWithCurrencySign(){
+            homePage.printoutProductPriceWithCurrencySign();
         }
         @Test
-        public void verifyUserShouldBeAbleToVote() {
-
-            votePage.VerifyUserShouldAbleToVote() ;{
-            }
-
+        public void verifySearchProductList(){
+            homePage.printoutSearchProductList();
         }
         @Test
-        public void verifyUserShouldBeAbleToEmail() {
-
-            emailPage.clickOnElement(By.linkText("Apple MacBook Pro 13-inch"));
-
-            emailPageResult.clickOnElement(By.className("email-a-friend"));
-
+        public void verifyNewReleaseCommentIsSuccessfullyAdded(){
+            homePage.nopCommerceNewRelease();
+            nopCommerceNewRelease.newReleaseComment();
         }
         @Test
-        public void verifyUserBeAbleToAddElectronicsItems() {
-
-
-            // ElectronicItemResult
-            ElectronicPage.clickOnElement(By.linkText("Shopping cart"));
-
-    }@Test
-        public void verifyUserShouldBeAbleToVoteNumber() {
-
-
-            //clickOnElement(By.id("pollanswers-2"));
-            //clickOnElement(By.id("vote-poll-1"));
-
-
-
+        public void verifyUserShouldBuildTheirOwnComputer(){
+            homePage.buildYourOw
+            homePage.buildYourOwnComputer();
+            buildYourOwnComputer.assembleComputer();
+            shoppingCart.productInShoppingCart();
+            shoppingCart.checkout();
+            checkoutPage.guestButton();
+            checkoutPage.billingAddress();
+            checkoutPage.shippingMethod();
+            checkoutPage.paymentMethod();
+            checkoutPage.paymentInformation();
+            orderConfirm.getOrderConfirmation();
         }
         @Test
-        public void verifyUserShouldRefferTotheFriend() {
-
-            //click on regsiter button
-            homePage.clickOnRegisterButton();
-//        fill in registration details
-            registerPage.enterRegistrationDetails();
-
-            ReferAfriend.clickOnElement(By.className("ico-login"));
-
-            ReferAfriend.clickOnElement(By.id("Email"));
-
+        public void verifyFacebookPageOpen (){
+            homePage.facebookPage();
+            socialMedia.facebook();
+            homePage.welcomeToOurStore();
         }
-        @Test
-        public void verifyUserBeAbleToCompareProduct() {
-
-            compareProduct.verifyUserBeAbleToCompareProduct();
     }}
-
-
-
+        //fill in re

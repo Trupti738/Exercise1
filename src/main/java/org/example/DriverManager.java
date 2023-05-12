@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class DriverManager extends Utils {
+public class DriverManager extends Utills {
 
         public void openBrowser(){
             driver = new ChromeDriver();
